@@ -9,9 +9,10 @@ public class App {
     Vertx vertx = Vertx.vertx();
     vertx.deployVerticle(new BarmanVerticle(), ar -> {
       System.out.println("The barman is ready to serve you");
-      vertx.deployVerticle(new DrunkVerticle(), ar2 -> {
-        vertx.close();
-      });
+    });
+
+    vertx.deployVerticle(new DrunkVerticle(), ar2 -> {
+      //vertx.close();
     });
   }
 }
